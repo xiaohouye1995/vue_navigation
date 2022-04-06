@@ -1,2 +1,2 @@
-# js_navigation
+# vue_navigation
 网址导航
