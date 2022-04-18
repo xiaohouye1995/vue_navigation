@@ -213,5 +213,9 @@ $light_gray: #eee;
   .el-input__inner {
     box-shadow: none !important;
   }
+  input:-internal-autofill-selected {
+    -webkit-text-fill-color: #ffffff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+  }
 }
 </style>

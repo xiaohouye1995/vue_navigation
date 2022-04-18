@@ -1,6 +1,6 @@
 import axios from 'axios'
 import router from '@/router'
-import { ElLoading, ElMessage, ElMessageBox } from 'element-plus'
+import { ElLoading, ElMessage } from 'element-plus'
 import { getToken, setToken } from '@/utils/auth'
 import { AxiosConfigTy, AxiosReqTy, ObjTy } from '~/common'
 import { useUserStore } from '@/store/user'
@@ -13,7 +13,8 @@ const service: any = axios.create()
 service.interceptors.request.use(
   (request: AxiosReqTy) => {
     // token setting
-    request.headers['AUTHORIZE_TOKEN'] = getToken()
+    // request.headers['AUTHORIZE_TOKEN'] = getToken()
+    request.headers['Authorization'] = 'Bearer ' + getToken()
     /* download file*/
     if (request.isDownLoadFile) {
       request.responseType = 'blob'
@@ -63,17 +64,17 @@ service.interceptors.response.use(
     if (successCode.includes(code)) {
       return res.data
     } else {
-      if (code === 403) {
-        ElMessageBox.confirm('请重新登录', {
-          confirmButtonText: '重新登录',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          const userStore = useUserStore()
-          userStore.resetState().then(() => {
-            router.push({ path: '/login' })
-          })
+      if (code === 401) {
+        ElMessage({
+          message: '请重新登录',
+          type: 'error',
+          duration: 2 * 1000
         })
+        const userStore = useUserStore()
+        userStore.resetState().then(() => {
+          router.push({ path: '/login' })
+        })
+        return
       }
       if (reqConfig.isAlertErrorMsg) {
         ElMessage({

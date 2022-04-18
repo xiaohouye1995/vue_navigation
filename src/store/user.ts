@@ -42,8 +42,9 @@ export const useUserStore = defineStore('user', {
           .then((res: ObjTy) => {
             if (res.code === 200) {
               //commit('SET_Token', res.data?.jwtToken)
-              console.log('res.data?.token', res.data?.token)
-              setToken(res.data?.token)
+              console.log('res.data', res.data)
+              setToken(res.data)
+              // setToken(res.data?.token)
               resolve(null)
             } else {
               reject(res)
