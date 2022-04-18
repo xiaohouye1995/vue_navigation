@@ -20,7 +20,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import setting from './src/settings'
 const prodMock = setting.openProdMock
 // import packageJson from './package.json'
-// import { loadEnv } from 'vite'
+import { loadEnv } from 'vite'
 export default ({ command, mode }: any) => {
   return {
     /*
@@ -51,11 +51,9 @@ export default ({ command, mode }: any) => {
       //proxy look for https://vitejs.cn/config/#server-proxy
       proxy: {
         '/api': {
-          // target: 'http://localhost:3080/api/',
-          target: 'http://110.42.229.66/api/',
-          // target: import.meta.env.VITE_APP_PROXY_URL,
+          target: loadEnv(mode, process.cwd()).VITE_APP_PROXY_URL,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '')
+          // rewrite: (path) => path.replace(/^\/api/, '')
         }
       }
     },

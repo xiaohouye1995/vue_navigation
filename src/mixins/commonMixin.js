@@ -11,6 +11,7 @@ const mixin = {
       VITE_APP_IMAGE_URL_PRE: '', // 图片前缀地址
       VITE_APP_BASE_URL: '', // 请求的url地址
       VITE_APP_BASE_WS_URL: '', // 请求的url地址
+      VITE_APP_PROXY_URL: '', // 请求的代理地址
       accessTokenMixin: '', // 请求头的token
       userBaseInfoMixin: {}, // 用户信息
       /* 时间点相关*/
@@ -28,6 +29,7 @@ const mixin = {
     // 读取.env 多坏境里的数据
     this.VITE_APP_IMAGE_URL_PRE = import.meta.env.VITE_APP_BASE_URL
     this.VITE_APP_BASE_URL = import.meta.env.VITE_APP_BASE_URL
+    this.VITE_APP_PROXY_URL = import.meta.env.VITE_APP_PROXY_URL
     this.VITE_APP_BASE_WS_URL =
       import.meta.env.VITE_APP_ENV === 'serve' ? import.meta.env.VITE_APP_BASE_WS_URL : socketUrl
     // 获取token和个人基本信息

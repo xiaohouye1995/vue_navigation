@@ -3,7 +3,7 @@ import { ObjTy } from '~/common'
 
 export function getCategoryListAll(params: ObjTy) {
   return request({
-    url: '/api/v1/getCategoryListAll',
+    url: '/api/menus/getMenus',
     method: 'get',
     data: params
   })
@@ -11,7 +11,7 @@ export function getCategoryListAll(params: ObjTy) {
 
 export function getCategoryList(params: ObjTy) {
   return request({
-    url: '/api/v1/getCategoryList',
+    url: '/api/menus/getMenusCategory',
     method: 'get',
     data: params
   })
@@ -19,7 +19,7 @@ export function getCategoryList(params: ObjTy) {
 
 export function getNameList(params: ObjTy) {
   return request({
-    url: '/api/v1/getNameList',
+    url: '/api/menus/getMenusColumn',
     method: 'get',
     data: params,
     isParams: true
@@ -28,30 +28,30 @@ export function getNameList(params: ObjTy) {
 
 export function categoryAdd(data: ObjTy) {
   return request({
-    url: '/api/v1/categoryAdd',
+    url: '/api/menus/addMenusCategory',
     data,
     method: 'post',
     bfLoading: false,
-    isAlertErrorMsg: false
+    isAlertErrorMsg: true
   })
 }
 
 export function categoryEdit(data: ObjTy) {
   return request({
-    url: '/api/v1/categoryEdit',
+    url: '/api/menus/editMenusCategory',
     data,
     method: 'post',
     bfLoading: false,
-    isAlertErrorMsg: false
+    isAlertErrorMsg: true
   })
 }
 
 export function categoryDel(data: ObjTy) {
   return request({
-    url: '/api/v1/categoryDel',
+    url: '/api/menus/delMenusCategory',
     data,
     method: 'post',
     bfLoading: false,
-    isAlertErrorMsg: false
+    isAlertErrorMsg: true
   })
 }

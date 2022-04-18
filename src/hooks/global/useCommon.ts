@@ -14,6 +14,7 @@ type stateTy = {
   VITE_APP_IMAGE_URL_PRE: string // 图片前缀地址
   VITE_APP_BASE_URL: string // 请求的url地址
   VITE_APP_BASE_WS_URL: string // 请求的url地址
+  VITE_APP_PROXY_URL: string // 请求的代理地址
   accessToken: string // 请求头的token
   userBaseInfo: ObjTy // 用户信息
   startEndArr: ObjTy // 用户信息
@@ -38,6 +39,7 @@ export const useCommonExample = () => {
     VITE_APP_IMAGE_URL_PRE: '', // 图片前缀地址
     VITE_APP_BASE_URL: '', // 请求的url地址
     VITE_APP_BASE_WS_URL: '', // 请求的url地址
+    VITE_APP_PROXY_URL: '', // 请求的代理地址
     accessToken: '', // 请求头的token
     userBaseInfo: {}, // 用户信息
     startEndArr: [],
@@ -51,6 +53,7 @@ export const useCommonExample = () => {
   // 读取.env 多坏境里的数据
   state.VITE_APP_IMAGE_URL_PRE = import.meta.env.VITE_APP_BASE_URL as string
   state.VITE_APP_BASE_URL = import.meta.env.VITE_APP_BASE_URL as string
+  state.VITE_APP_PROXY_URL = import.meta.env.VITE_APP_PROXY_URL as string
   // 获取token和个人基本信息
   state.accessToken = getToken() as string
   /* 获取时间点*/

@@ -3,7 +3,7 @@ import { ObjTy } from '~/common'
 
 export function loginReq(data: ObjTy) {
   return request({
-    url: '/api/v1/login',
+    url: '/api/user/login',
     data,
     method: 'post',
     bfLoading: false,
@@ -13,9 +13,9 @@ export function loginReq(data: ObjTy) {
 
 export function getInfoReq() {
   return request({
-    url: '/api/v1/user/getUserInfo',
+    url: '/api/user/getUserInfo',
     bfLoading: false,
-    method: 'post',
+    method: 'get',
     isAlertErrorMsg: false
   })
 }
