@@ -1,22 +1,24 @@
 <template>
   <div class="frontNav-container px-40 pt-40">
-    <h2 class="title text-center text-white">小侯爷的网址导航</h2>
-    <el-tabs v-model="activeName" class="tabs" :style="{ '--el-text-color-primary': '#fff' }">
-      <el-tab-pane v-for="item in paneList" :key="item.id" class="pane" :label="item.name" :name="item.name">
-        <div v-for="item2 in item.children" :key="item2.id" class="pane-box">
-          <div class="pane-head flex flex-center text-white">
+    <h2 class="title text-center text-white">流光导航</h2>
+    <el-tabs v-model="activeName" class="mt-60" :style="{ '--el-text-color-primary': '#fff' }">
+      <el-tab-pane v-for="item in paneList" :key="item.id" class="pt-20" :label="item.name" :name="item.name">
+        <div v-for="item2 in item.children" :key="item2.id" class="flex mb-40">
+          <div class="pane-head flex flex-center mr-20 text-white">
             <div>{{ item2.name }}</div>
           </div>
-          <div v-for="item3 in item2.children" :key="item3.id" class="pane-content text-white">
-            <el-tooltip placement="bottom" effect="light">
-              <el-link class="pane-content-name" :underline="false" target="_blank" :href="item3.link">
-                <div>{{ item3.name }}</div>
-              </el-link>
-              <template #content>
-                <div>{{ item3.content }}</div>
-                <div>{{ item3.link }}</div>
-              </template>
-            </el-tooltip>
+          <div class="flex wrap">
+            <div v-for="item3 in item2.children" :key="item3.id" class="pane-item flex flex-center mb-16 mr-40 text-white">
+              <el-tooltip placement="bottom" effect="light">
+                <el-link class="pane-content-name flex flex-center" :underline="false" target="_blank" :href="item3.link">
+                  <div>{{ item3.name }}</div>
+                </el-link>
+                <template #content>
+                  <div>{{ item3.content }}</div>
+                  <div>{{ item3.link }}</div>
+                </template>
+              </el-tooltip>
+            </div>
           </div>
         </div>
       </el-tab-pane>
@@ -58,47 +60,17 @@ const { activeName, paneList } = toRefs(state)
   font-size: 32px;
   font-weight: bold;
 }
-
-.tabs {
-  margin-top: 60px;
-}
-
-.pane {
-  padding-top: 20px;
-}
-
-.pane-box {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 40px;
-}
-
 .pane-head {
-  width: 110px;
-  padding: 10px 20px;
-  margin-right: 20px;
+  min-width: 110px;
+  height: 40px;
   border: 1px solid #fff;
   border-radius: 50px;
   box-shadow: 0px 2px 6px 0px rgba(27, 202, 233, 0.445);
-  display: flex;
-  align-items: center;
 }
-
-.pane-head-img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
+.pane-item {
+  height: 40px;
 }
-
-.pane-content {
-  margin-right: 40px;
-}
-
 .pane-content-name {
-  display: flex;
-  align-items: center;
   font-size: 18px;
 }
 </style>

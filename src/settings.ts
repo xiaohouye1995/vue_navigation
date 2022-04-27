@@ -19,7 +19,7 @@ interface SettingTy {
 }
 
 const setting: SettingTy = {
-  title: 'vue3-admin-liuguang',
+  title: '流光导航',
   /**
    * @type {boolean} true | false
    * @description Whether show the logo in sidebar

@@ -2,6 +2,7 @@
 @import './transition.scss';
 @import './scss-suger.scss';
 @import './reset-style.scss';
+@import './lg-style.scss';
 @import './elemenet-style-overflow.scss';
 
 //scroll
@@ -21,94 +22,4 @@
 .scroll-xy {
   @include main-show-wh();
   overflow: auto;
-}
-
-// 间距
-@for $distance from 1 through 100 {
-  .p-#{$distance*2} {
-    padding: $distance * 2px;
-  }
-  .px-#{$distance*2} {
-    padding-left: $distance * 2px;
-    padding-right: $distance * 2px;
-  }
-  .py-#{$distance*2} {
-    padding-top: $distance * 2px;
-    padding-bottom: $distance * 2px;
-  }
-  .pt-#{$distance*2} {
-    padding-top: $distance * 2px;
-  }
-  .pb-#{$distance*2} {
-    padding-bottom: $distance * 2px;
-  }
-  .pl-#{$distance*2} {
-    padding-left: $distance * 2px;
-  }
-  .pr-#{$distance*2} {
-    padding-right: $distance * 2px;
-  }
-  .m-#{$distance*2} {
-    margin: $distance * 2px;
-  }
-  .mx-#{$distance*2} {
-    margin-left: $distance * 2px;
-    margin-right: $distance * 2px;
-  }
-  .my-#{$distance*2} {
-    margin-top: $distance * 2px;
-    margin-bottom: $distance * 2px;
-  }
-  .mt-#{$distance*2} {
-    margin-top: $distance * 2px;
-  }
-  .mb-#{$distance*2} {
-    margin-bottom: $distance * 2px;
-  }
-  .ml-#{$distance*2} {
-    margin-left: $distance * 2px;
-  }
-  .mr-#{$distance*2} {
-    margin-right: $distance * 2px;
-  }
-  .lh-#{$distance*2} {
-    line-height: $distance * 2px;
-  }
-}
-
-// flex布局
-.flex {
-  display: flex;
-}
-.wrap {
-  flex-wrap: wrap;
-}
-.flex-center {
-  justify-content: center;
-  align-items: center;
-}
-.flex-y-center {
-  align-items: center;
-}
-.flex-x-end {
-  justify-content: flex-end;
-}
-.flex-column {
-  flex-direction: column;
-}
-.flex-between {
-  justify-content: space-between;
-}
-.flex-around {
-  justify-content: space-around;
-}
-.flex-full {
-  flex: 1;
-}
-
-.text-center {
-  text-align: center;
-}
-.text-white {
-  color: #fff;
 }
